@@ -1,0 +1,16 @@
+initialize packages (styled, tailwind, router)
+clean up
+folder structure
+header
+utils links constant
+header styles
+font
+context 
+actions
+reducer
+custom button input 
+auth page
+login register routes using context + add token in storage
+jwt decode 
+show jwt + localstorage using postman and browser console 
+logout + remove token 

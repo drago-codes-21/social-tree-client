@@ -63,7 +63,6 @@ export const UserProvider = ({ children }) => {
         headers: { "Content-Type": "application/json" },
       }
     );
-    console.log(response);
     dispatch({ type: SET_USER_FROM_STORAGE, payload: response.data });
   };
   const logout = () => {

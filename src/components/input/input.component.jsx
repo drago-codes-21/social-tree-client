@@ -5,7 +5,15 @@ const Input = ({ label, ...otherProps }) => {
     <Group>
       <InputBox {...otherProps} />
       {label && (
-        <InputLabel shrink={otherProps.value.length}>{label}</InputLabel>
+        <InputLabel
+          shrink={
+            otherProps.type !== "file"
+              ? otherProps.value.length
+              : otherProps.name
+          }
+        >
+          {label}
+        </InputLabel>
       )}
     </Group>
   );

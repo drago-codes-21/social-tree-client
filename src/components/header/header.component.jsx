@@ -25,7 +25,7 @@ const Header = () => {
         </ul>
         {currentUser === null ? (
           <Link to="/auth">
-            <Button buttonType={BUTTON_TYPE_CLASSES.google} type="button">
+            <Button buttonType={BUTTON_TYPE_CLASSES.base} type="button">
               {" "}
               Login
             </Button>

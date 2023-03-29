@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.nav`
-  height: 5rem;
+  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;

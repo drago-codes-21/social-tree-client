@@ -1,28 +1,16 @@
 import React from "react";
-import { PostContainer, LinkContainer } from "./post-card.styles";
-import { AiFillLike } from "react-icons/ai";
-// import { Link } from "react-router-dom";
-import { MdComment } from "react-icons/md";
+import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
+import { PostContainer } from "./post-card.styles";
 
-const Post = () => {
-  const image =
-    "http://t3.gstatic.com/licensed-image?q=tbn:ANd9GcQo5gl7sJQimDLb9QwmCQNGvDJA56gh0ItMYJ-f5e9HahVCY0Ac9A4EsYhYKD9eQF0JJc3JLm65HKFAvws";
+const Post = ({ post }) => {
   return (
     <PostContainer>
-      <div className="container">
-        <img src={image} alt="kohli" />
-        <LinkContainer className="link">
-          <span>
-            <AiFillLike />
-          </span>
-          <span>
-            <MdComment />
-          </span>
-        </LinkContainer>
-      </div>
-      <footer>
-        <h5>Sarthak Nalawade</h5>
-      </footer>
+      <img
+        src={`${process.env.REACT_APP_PHOTO_FOLDER}/${post.picturePath}`}
+        alt="kohli"
+      />
+
+      <Button buttonType={BUTTON_TYPE_CLASSES.inverted}>View Details</Button>
     </PostContainer>
   );
 };

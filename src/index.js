@@ -5,6 +5,7 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { UserProvider } from "./context/user.context";
 import { PostProvider } from "./context/post.context";
+import { Toaster } from "react-hot-toast";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -12,6 +13,7 @@ root.render(
     <PostProvider>
       <UserProvider>
         <BrowserRouter>
+          <Toaster />
           <App />
         </BrowserRouter>
       </UserProvider>

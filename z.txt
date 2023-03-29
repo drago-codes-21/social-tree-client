@@ -13,4 +13,8 @@ auth page
 login register routes using context + add token in storage
 jwt decode 
 show jwt + localstorage using postman and browser console 
-logout + remove token 
+logout + remove token
+create post postman 
+post frontend 
+post image file with both frontend backend 
+feed look after posts render 

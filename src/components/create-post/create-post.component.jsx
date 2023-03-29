@@ -1,46 +1,38 @@
-import React, { useState, useContext, Fragment } from "react";
+import React, { useState, useContext } from "react";
 import { UserContext } from "../../context/user.context";
 import { PostContext } from "../../context/post.context";
 import Input from "../input/input.component";
-
-// const defaultFormFields = {
-//   description: "",
-//   : null,
-// };
+import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
+import { CreatePostContainer } from "./create-post.styles";
+import { toast } from "react-hot-toast";
 
 const CreatePost = () => {
   const { currentUser } = useContext(UserContext);
   const { createPost } = useContext(PostContext);
-  // const [formFields, setFormFields] = useState(defaultFormFields);
   const [file, setFile] = useState(null);
   const [description, setDescription] = useState("");
-  // const { description } = formFields;
-  // const resetFormFields = () => {
-  //   setFormFields(defaultFormFields);
-  // };
-  // const handleChange = (event) => {
-  //   const { name, value } = event.target;
-
-  //   setFormFields({ ...formFields, [name]: value });
-  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newPost = {
-      userId: currentUser._id,
-      description: description,
-    };
-    const data = new FormData();
-    const fileName = Date.now() + file.name;
-    data.append("name", fileName);
-    data.append("file", file);
-    newPost.picturePath = fileName;
-    createPost(newPost);
-    // console.log();
-    // resetFormFields();
+    const formData = new FormData();
+    formData.append("userId", currentUser._id);
+    formData.append("description", description);
+    if (file) {
+      formData.append("picture", file);
+      formData.append("picturePath", file.name);
+    }
+    createPost(formData);
+    toast.success("New post has been created");
+    resetFormFields();
   };
+
+  const resetFormFields = () => {
+    setDescription("");
+    setFile(null);
+  };
+
   return (
-    <Fragment>
+    <CreatePostContainer>
       <form onSubmit={handleSubmit}>
         <h1 className="text-2xl">description</h1>
         <Input
@@ -51,16 +43,19 @@ const CreatePost = () => {
           name="description"
           value={description}
         />
-        <input
-          // style={{ display: "none" }}
+        <Input
+          label="file"
           type="file"
-          id="file"
+          required
+          name="file ip"
           accept=".png,.jpeg,.jpg"
           onChange={(e) => setFile(e.target.files[0])}
-        />{" "}
-        <button onClick={handleSubmit}>Submit</button>
+        />
+        <Button onClick={handleSubmit} buttonType={BUTTON_TYPE_CLASSES.base}>
+          Post
+        </Button>
       </form>
-    </Fragment>
+    </CreatePostContainer>
   );
 };
 

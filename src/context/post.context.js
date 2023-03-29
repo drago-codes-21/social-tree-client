@@ -43,9 +43,9 @@ export const PostProvider = ({ children }) => {
       const response = await axios.get(
         `${process.env.REACT_APP_API_URL}/post/fetch`
       );
-      console.log(response);
-      const fetchedPosts = response.data.posts;
+      const fetchedPosts = response.data;
       dispatch({ type: GET_POSTS_SUCCESS, payload: fetchedPosts });
+      console.log(response);
     } catch (error) {
       dispatch({ type: GET_POSTS_ERROR });
     }
@@ -68,13 +68,12 @@ export const PostProvider = ({ children }) => {
       data,
       {
         headers: {
-          "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("currentUser")}`,
         },
       }
     );
-    console.log(response);
     dispatch({ type: CREATE_POST, payload: response.data });
+    fetchAllPosts();
   };
 
   const deletePost = async (data) => {

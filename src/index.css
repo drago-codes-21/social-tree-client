@@ -60,25 +60,4 @@ body {
   -moz-osx-font-smoothing: grayscale;
   //background-color: #ececec;
 }
-/* 
-.button-cls {
-  text-transform: uppercase;
-  background: var(--clr-primary-5);
-  background: #fd5c63;
-  color: var(--clr-white);
-  padding: 0.375rem 0.75rem;
-  letter-spacing: var(--spacing);
-  display: inline-block;
-  font-weight: 400;
-  transition: var(--transition);
-  font-size: 0.875rem;
-  cursor: pointer;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  border-radius: var(--radius);
-  border-color: transparent;
-}
-.button-cls:hover {
-  color: var(--clr-white);
-  background: var(--clr-primary-7);
-  background: #f08080;
-} */
+

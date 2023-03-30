@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import { PostContainer } from "./post-card.styles";
 
@@ -9,8 +10,9 @@ const Post = ({ post }) => {
         src={`${process.env.REACT_APP_PHOTO_FOLDER}/${post.picturePath}`}
         alt="kohli"
       />
-
-      <Button buttonType={BUTTON_TYPE_CLASSES.inverted}>View Details</Button>
+      <Link to={`/post-details/${post._id}`}>
+        <Button buttonType={BUTTON_TYPE_CLASSES.inverted}>View Details</Button>
+      </Link>
     </PostContainer>
   );
 };

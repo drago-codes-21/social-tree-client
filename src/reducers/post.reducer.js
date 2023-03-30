@@ -10,6 +10,7 @@ import {
   GET_USER_POSTS_SUCCESS,
   SIDEBAR_CLOSE,
   SIDEBAR_OPEN,
+  SET_SINGLE_PRODUCT,
 } from "../utils/actions.util";
 
 const post_reducer = (state, action) => {
@@ -51,6 +52,12 @@ const post_reducer = (state, action) => {
       ...state,
       user_posts_loading: false,
       user_posts_error: true,
+    };
+  }
+  if (action.type === SET_SINGLE_PRODUCT) {
+    return {
+      ...state,
+      single_product: action.payload,
     };
   }
   if (action.type === CREATE_POST) {

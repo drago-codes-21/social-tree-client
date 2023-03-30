@@ -10,6 +10,7 @@ import {
   GET_USER_POSTS_SUCCESS,
   SIDEBAR_CLOSE,
   SIDEBAR_OPEN,
+  SET_SINGLE_PRODUCT,
   CREATE_POST,
   DELETE_POST,
 } from "../utils/actions.util";
@@ -18,6 +19,7 @@ const initialState = {
   isSidebarOpen: false,
   posts_loading: false,
   posts_error: false,
+  single_post: {},
   posts: [],
   user_posts_loading: false,
   user_posts_error: false,
@@ -45,7 +47,6 @@ export const PostProvider = ({ children }) => {
       );
       const fetchedPosts = response.data;
       dispatch({ type: GET_POSTS_SUCCESS, payload: fetchedPosts });
-      console.log(response);
     } catch (error) {
       dispatch({ type: GET_POSTS_ERROR });
     }
@@ -61,7 +62,16 @@ export const PostProvider = ({ children }) => {
       dispatch({ type: GET_USER_POSTS_ERROR });
     }
   };
-
+  const fetchSinglePost = async (id) => {
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/post/fetch/singlePost/${id}`
+      );
+      dispatch({ type: SET_SINGLE_PRODUCT, payload: response.data });
+    } catch (error) {
+      dispatch({ type: GET_USER_POSTS_ERROR });
+    }
+  };
   const createPost = async (data) => {
     const response = await axios.post(
       `${process.env.REACT_APP_API_URL}/post/create`,
@@ -102,6 +112,7 @@ export const PostProvider = ({ children }) => {
     fetchAllPosts,
     createPost,
     deletePost,
+    fetchSinglePost,
   };
   return <PostContext.Provider value={value}>{children}</PostContext.Provider>;
 };

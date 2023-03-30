@@ -9,14 +9,12 @@ import { Toaster } from "react-hot-toast";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <PostProvider>
-      <UserProvider>
-        <BrowserRouter>
-          <Toaster />
-          <App />
-        </BrowserRouter>
-      </UserProvider>
-    </PostProvider>
-  </React.StrictMode>
+  <PostProvider>
+    <UserProvider>
+      <BrowserRouter>
+        <Toaster position="bottom-center" />
+        <App />
+      </BrowserRouter>
+    </UserProvider>
+  </PostProvider>
 );

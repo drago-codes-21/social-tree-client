@@ -5,6 +5,8 @@ import { toast } from "react-hot-toast";
 import { UserContext } from "../../context/user.context";
 import { ImageContainer, PostDetailContainer } from "./post-detail.styles";
 import Loading from "../../components/loading/loading.component";
+import { LikeIcon, StarIcon } from "../../utils/constants.util";
+// import { AiOutlineComment } from "react-icons/ai";
 
 const PostDetailPage = () => {
   const { currentUser } = useContext(UserContext);
@@ -18,6 +20,22 @@ const PostDetailPage = () => {
     );
     console.log(response);
     setPostData(response.data);
+  };
+
+  const handleLike = async () => {
+    if (currentUser === null) return;
+    try {
+      const response = await axios.patch(
+        `${process.env.REACT_APP_API_URL}/post/like/${id}`,
+        {
+          userId: currentUser._id,
+        }
+      );
+      console.log(response);
+      setPostData(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
   const handleComment = async () => {
     if (currentUser === null) return;
@@ -44,6 +62,7 @@ const PostDetailPage = () => {
   });
 
   if (postData === null) return <Loading size={100} />;
+
   return (
     <PostDetailContainer className="mt-36">
       {postData && (
@@ -56,7 +75,10 @@ const PostDetailPage = () => {
             />
           </ImageContainer>
           <div>
-            <div>Likes : 0</div>
+            <button onClick={handleLike}>LIKE</button>
+            <div>Likes : {Object.keys(postData.likes).length}</div>
+            {/* <LikeIcon verdict={Boolean(postData?.likes[currentUser?._id])} />
+            <StarIcon /> */}
             <br />
             <input
               placeholder="comment..."

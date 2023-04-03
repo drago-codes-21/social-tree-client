@@ -25,7 +25,7 @@ const Header = () => {
         </ul>
         {currentUser === null ? (
           <Link to="/auth">
-            <Button buttonType={BUTTON_TYPE_CLASSES.base} type="button">
+            <Button buttonType={BUTTON_TYPE_CLASSES.google} type="button">
               {" "}
               Login
             </Button>
@@ -33,7 +33,7 @@ const Header = () => {
         ) : (
           <Link to="/auth">
             <Button
-              buttonType={BUTTON_TYPE_CLASSES.base}
+              buttonType={BUTTON_TYPE_CLASSES.google}
               type="button"
               onClick={() => logout()}
             >

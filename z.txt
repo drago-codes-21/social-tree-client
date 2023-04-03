@@ -17,4 +17,7 @@ logout + remove token
 create post postman 
 post frontend 
 post image file with both frontend backend 
-feed look after posts render 
+feed look after posts render
+post detail page
+comments 
+like 

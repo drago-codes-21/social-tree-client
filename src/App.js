@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { UserContext } from "./context/user.context";
-// import CreatePost from "./components/create-post/create-post.component";
 import Header from "./components/header/header.component";
 import AuthPage from "./pages/auth/auth.page";
 import HomePage from "./pages/home/home.page";
@@ -18,10 +17,11 @@ const App = () => {
       setUserFromStorage(decoded);
     }
   });
+
   return (
     <div>
       <Header />
-      {/* <CreatePost /> */}
+      {/* <video src="https://www.youtube.com/watch?v=kK-iR6g-V1g" /> */}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/auth" element={<AuthPage />} />

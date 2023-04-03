@@ -16,10 +16,9 @@ export const links = [
   },
 ];
 
-export const LikeIcon = (verdict) => {
-  const _class = verdict === true ? "text-red-500 h-8 w-8" : "h-8 w-8";
+export const LikeIcon = () => {
   return (
-    <div className={`${_class}`}>
+    <div>
       <svg
         fill="currentColor"
         viewBox="0 0 24 24"

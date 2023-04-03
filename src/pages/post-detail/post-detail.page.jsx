@@ -62,7 +62,7 @@ const PostDetailPage = () => {
   });
 
   if (postData === null) return <Loading size={100} />;
-
+  let likeIconColor = Boolean(postData.likes[currentUser._id]);
   return (
     <PostDetailContainer className="mt-36">
       {postData && (
@@ -75,10 +75,17 @@ const PostDetailPage = () => {
             />
           </ImageContainer>
           <div>
-            <button onClick={handleLike}>LIKE</button>
-            <div>Likes : {Object.keys(postData.likes).length}</div>
-            {/* <LikeIcon verdict={Boolean(postData?.likes[currentUser?._id])} />
-            <StarIcon /> */}
+            <button onClick={handleLike} className="">
+              <div
+                className={`${
+                  likeIconColor ? "text-red-500" : "text-green-500"
+                } h-8 w-8`}
+              >
+                <LikeIcon />
+                {Object.keys(postData.likes).length}
+              </div>
+            </button>
+            <StarIcon />
             <br />
             <input
               placeholder="comment..."

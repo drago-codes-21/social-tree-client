@@ -1,7 +1,10 @@
 import React from "react";
 import Post from "../post-card/post-card.component";
+import Loading from "../loading/loading.component";
 
 const Feed = ({ posts }) => {
+  if (posts.length === 0) return <Loading />;
+
   return (
     <div className="gap-4 w-40">
       {posts

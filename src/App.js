@@ -6,6 +6,7 @@ import AuthPage from "./pages/auth/auth.page";
 import HomePage from "./pages/home/home.page";
 import jwtDecode from "jwt-decode";
 import PostDetailPage from "./pages/post-detail/post-detail.page";
+import ReelsPage from "./pages/reels/reels.page";
 import CreatePost from "./components/create-post/create-post.component";
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/post-details/:id" element={<PostDetailPage />} />
         <Route path="/create" element={<CreatePost />} />
+        <Route path="/reels" element={<ReelsPage />} />
       </Routes>
     </div>
   );

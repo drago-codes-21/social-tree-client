@@ -11,14 +11,16 @@ const Header = () => {
     <HeaderContainer>
       <div className="header-center">
         <div className="header-logo">
-          <h1 className="text-3xl">Logo</h1>
+          <Link to="/">
+            <h1 className="text-2xl">Logo</h1>
+          </Link>
         </div>
         <ul className="header-links">
           {links.map((link) => {
-            const { id, text } = link;
+            const { id, text, url } = link;
             return (
               <li key={id}>
-                <Link to="/">{text}</Link>
+                <Link to={`${url}`}>{text}</Link>
               </li>
             );
           })}

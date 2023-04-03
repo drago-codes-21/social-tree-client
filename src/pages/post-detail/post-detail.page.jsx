@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 import { UserContext } from "../../context/user.context";
 import { ImageContainer, PostDetailContainer } from "./post-detail.styles";
 import Loading from "../../components/loading/loading.component";
-import { LikeIcon, StarIcon } from "../../utils/constants.util";
+import { LikeIcon, StarIcon } from "../../utils/helper.util";
 // import { AiOutlineComment } from "react-icons/ai";
 
 const PostDetailPage = () => {

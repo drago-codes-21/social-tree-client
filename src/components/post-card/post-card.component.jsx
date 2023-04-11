@@ -10,7 +10,7 @@ const Post = ({ post }) => {
         src={`${process.env.REACT_APP_PHOTO_FOLDER}/${post.picturePath}`}
         alt="kohli"
       />
-      <Link to={`/post-details/${post._id}`}>
+      <Link to={`/post-details/${post._id}`} className="link">
         <Button buttonType={BUTTON_TYPE_CLASSES.inverted}>View Details</Button>
       </Link>
     </PostContainer>

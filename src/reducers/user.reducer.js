@@ -5,7 +5,7 @@ import {
   AUTH_USER_ERROR,
   LOGOUT_USER,
   SET_USER_FROM_STORAGE,
-} from "../utils/actions.util";
+} from "../actions";
 
 const user_reducer = (state, action) => {
   if (action.type === AUTH_USER_BEGIN) {

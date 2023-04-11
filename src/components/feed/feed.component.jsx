@@ -6,7 +6,7 @@ const Feed = ({ posts }) => {
   if (posts.length === 0) return <Loading />;
 
   return (
-    <div className="gap-4 w-40">
+    <div className="gap-4 flex flex-col items-center justify-center">
       {posts
         ? posts.map((post) => {
             return (

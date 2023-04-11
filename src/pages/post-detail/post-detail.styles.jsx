@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const PostDetailContainer = styled.article`
-    width: 800px;
-    height : 500px
     display : flex
     justify-content : center
     align-items : center

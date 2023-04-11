@@ -22,7 +22,6 @@ const App = () => {
   return (
     <div>
       <Header />
-      {/* <video src="https://www.youtube.com/watch?v=kK-iR6g-V1g" /> */}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/auth" element={<AuthPage />} />

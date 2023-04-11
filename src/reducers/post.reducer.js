@@ -11,7 +11,7 @@ import {
   SIDEBAR_CLOSE,
   SIDEBAR_OPEN,
   SET_SINGLE_PRODUCT,
-} from "../utils/actions.util";
+} from "../actions";
 
 const post_reducer = (state, action) => {
   if (action.type === SIDEBAR_OPEN) {

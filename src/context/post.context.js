@@ -13,7 +13,7 @@ import {
   SET_SINGLE_PRODUCT,
   CREATE_POST,
   DELETE_POST,
-} from "../utils/actions.util";
+} from "../actions";
 
 const initialState = {
   isSidebarOpen: false,

@@ -8,7 +8,7 @@ import {
   REGISTER_USER_SUCCESS,
   LOGOUT_USER,
   SET_USER_FROM_STORAGE,
-} from "../utils/actions.util";
+} from "../actions";
 
 const initialState = {
   currentUser: null,
